@@ -66,7 +66,7 @@ export function TodoCard({ title, description, createdAt,_id }:todoCardProps) {
             <AlertDialogHeader>
               <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
               <AlertDialogDescription>
-               <UpdateForm title={ title} description={description} id={_id}/>
+               <UpdateForm title={title} description={description} id={_id}/>
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>

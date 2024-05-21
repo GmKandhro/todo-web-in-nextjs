@@ -1,7 +1,22 @@
 import mongoose , {Schema, Document}from "mongoose";
-import { Todo, todoSchema } from "./todoModel";
 
+export interface Todo extends Document{
+    title: string;
+    description:string;
+   
+}
 
+export const todoSchema:Schema<Todo> = new Schema({
+    title:{
+        type:String,
+        required:true,
+
+    },
+    description:{
+        type:String,
+        required:true,
+    }
+},{timestamps:true})
 
 interface User extends Document {
     username: string;
@@ -36,4 +51,9 @@ const userSchema : Schema<User> = new Schema({
     todos:[todoSchema]
 })
 
-export const UserModel = mongoose.models.User || mongoose.model("User",userSchema); 
+
+const UserModel =
+  (mongoose.models.User as mongoose.Model<User>) ||
+  mongoose.model<User>('User', userSchema);
+
+export { UserModel};

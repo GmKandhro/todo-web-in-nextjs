@@ -1,9 +1,8 @@
 import { dbConnect } from "@/app/dbconnect";
 import { ApiError, ApiResponse } from "@/helpers/ApiResponses";
-import {TodoModel} from "@/models/todoModel";
 import { cookies } from "next/headers";
 import jwt from 'jsonwebtoken'
-import { UserModel } from "@/models/userModel";
+import { Todo, UserModel } from "@/models/userModel";
 
 interface userIdType {
     userId:string
@@ -23,13 +22,13 @@ export async function POST(request:Request) {
  
         const {title,description} =await request.json()
 
-        const todo = new TodoModel( {
+        const todo = {
             title,
             description,
-        })
+        }
 
-        user.todos.push(todo)
-        await user.save()
+        user?.todos.push(todo as Todo)
+        await user?.save()
 
         
         return Response.json(new ApiResponse(200,'Todo add successfull'))

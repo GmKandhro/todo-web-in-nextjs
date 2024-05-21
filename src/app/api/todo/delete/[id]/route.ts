@@ -1,6 +1,5 @@
 import { dbConnect } from "@/app/dbconnect";
 import { ApiError, ApiResponse } from "@/helpers/ApiResponses";
-import { TodoModel } from "@/models/todoModel";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import { UserModel } from "@/models/userModel";

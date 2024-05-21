@@ -6,7 +6,22 @@ import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { createContext, useState, useContext } from 'react';
 
-const TodoContext = createContext();
+
+
+interface TodoContextType {
+  newTodoAdded: boolean;
+  setNewTodoAdded: React.Dispatch<React.SetStateAction<boolean>>;
+  logoutUser: () => Promise<void>;
+}
+
+const defaultContextValue: TodoContextType = {
+  newTodoAdded: false,
+  setNewTodoAdded: () => {},
+  logoutUser: async () => {},
+};
+
+const TodoContext = createContext<TodoContextType>(defaultContextValue);
+
 
 export const useTodoContext = () => {
   return useContext(TodoContext);

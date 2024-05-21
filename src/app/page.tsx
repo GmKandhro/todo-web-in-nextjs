@@ -6,19 +6,24 @@ import { useState } from "react";
 import Userinfo from "@/hooks/userinfo";
 import Link from "next/link";
 
+
+
 export default function Home() {
   const {user} = Userinfo()
   const capitalize = (str: string): string => {
     if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+  const capitalizedUsername = capitalize((user as { username: string }).username)
+
+  
   return (
 <>
   <main className="bg-gray-50 min-h-screen">
         {/* Hero Section */}
         <section className="bg-blue-600 text-white py-20">
           <div className="container mx-auto px-6 text-center">
-            <h4 className="text-3xl font-bold mb-2">Welcome {capitalize(user.username)}</h4>
+            <h4 className="text-3xl font-bold mb-2">Welcome {capitalizedUsername}</h4>
             <h2 className="text-5xl font-bold mb-2">Stay Organized with Our To-Do App</h2>
             <p className="text-xl mb-6">Manage your tasks efficiently and never miss a deadline.</p>
             <Link href={`${user ? "/dashboard" : "/signup"}`} className="bg-white text-blue-600 font-semibold py-2 px-4 rounded shadow-lg hover:bg-gray-100">Get Started</Link>

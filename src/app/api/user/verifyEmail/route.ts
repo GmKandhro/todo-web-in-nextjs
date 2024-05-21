@@ -39,7 +39,8 @@ export async function POST(request: Request) {
       );
     }
     user.isVerify = true;
-    user.verifyCodeExpiry = undefined;
+    await UserModel.updateOne({}, { $unset: { verifyCodeExpiry: "" } })
+
     await user.save();
 
     return Response.json(new ApiResponse(200, "Verification successful."));

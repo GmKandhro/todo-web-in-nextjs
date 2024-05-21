@@ -14,7 +14,7 @@ const Navbar = () => {
   const { toast } = useToast()
   const route = useRouter()
   const {user,token} =  Userinfo()
-const {logoutUser} = useTodoContext()
+const {logoutUser}:any = useTodoContext()
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
