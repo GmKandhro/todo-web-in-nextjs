@@ -41,7 +41,7 @@ const SigninPage = () => {
           title:`${status ? "Success" : "Failed"}`,
           description: response.data.message
         })
-        status && route.replace(`/`) 
+        status && route.replace(`/dashboard`) 
 
     }catch(err){
       const axioserror = err as AxiosError<PromiseType>

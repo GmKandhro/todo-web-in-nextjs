@@ -35,9 +35,9 @@ export async function POST(request: Request,res:NextResponse) {
 
     cookies().set('token', token)
 
-    const response = new ApiResponse(200, "user login successful")
+    const response = new ApiResponse(200, "user Sigin successful")
     return Response.json(response)
   } catch (error){
-    return Response.json(new ApiError(500,'error while login user'))
+    return Response.json(new ApiError(500,'error while Sigin user'))
   }
 }

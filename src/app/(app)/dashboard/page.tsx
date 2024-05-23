@@ -6,6 +6,7 @@ import React from 'react'
 const page = () => {
   return (
     <div>
+      <h1 className='flex justify-center m-1'>Dashboard</h1>
       <CreatetodoPage />
       <GetTodos />
     </div>
