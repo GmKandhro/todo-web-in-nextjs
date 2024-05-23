@@ -88,12 +88,27 @@ const {logoutUser}:any = useTodoContext()
            
             <span className="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">
             </span>
-            <button
-              className="text-gray-800 hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left"
+            {token ? (<button
+              className="text-gray-800 bg-[#6b83eb] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
               onClick={logoutUser}
             >
               Logout
-            </button>
+            </button>) : (
+              <>
+            <Link href="/signup"
+              className="text-gray-800 bg-[#6b83eb] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+           
+              >
+              Sign up
+            </Link>
+            <Link href="/signin"
+              className="text-gray-800 bg-[#6b83eb] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+           
+              >
+              Sign in
+            </Link>
+              </>
+          )}
           </div>
         </div>
       )}
