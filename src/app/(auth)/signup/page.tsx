@@ -40,7 +40,7 @@ const SignupPage = () => {
           title:`${status ? "Success" : "Failed"}`,
           description: response.data.message
         })
-        status && route.replace(`/verify/${data.username}`) 
+        status && route.replace(`/signin`) 
 
     }catch(err){
       const axioserror = err as AxiosError<PromiseType>

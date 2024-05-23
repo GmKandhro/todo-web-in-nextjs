@@ -9,13 +9,14 @@ import {
     Text,
     Button,
   } from '@react-email/components';
+  import React from 'react';
   
   interface VerificationEmailProps {
     username: string;
     verifyCode: string;
   }
   
-  export default function VerificationEmail({ username, verifyCode }: VerificationEmailProps) {
+ export const VerificationEmail: React.FC<VerificationEmailProps> = ({ username, verifyCode }:VerificationEmailProps) => {
     return (
       <Html lang="en" dir="ltr">
         <Head>

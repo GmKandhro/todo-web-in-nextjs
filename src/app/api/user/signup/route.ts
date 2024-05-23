@@ -3,7 +3,7 @@ import { dbConnect } from '@/app/dbconnect/index';
 import bcrypt from 'bcrypt'
 import { UserModel } from '@/models/userModel';
 import { ApiError, ApiResponse } from '@/helpers/ApiResponses';
-import { sendVerificationEmail } from '@/helpers/sendVerificationEmail';
+// import { sendVerificationEmail } from '@/helpers/sendVerificationEmail';
 
 export async function POST(req:Request) {
     dbConnect();
@@ -53,7 +53,8 @@ export async function POST(req:Request) {
             await user.save()
         }
         // send verification mail
-      const sendEmail =  await sendVerificationEmail(email,username,verifyCode)
+    //   const sendEmail =  await sendVerificationEmail(email,username,verifyCode)
+     
        return Response.json(new ApiResponse(200,'user signup successfull '))
     } catch (error) {
        return Response.json(new ApiError(500,'error while signup user'))
